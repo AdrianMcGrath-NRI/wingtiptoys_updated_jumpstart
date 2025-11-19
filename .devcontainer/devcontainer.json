@@ -1,0 +1,48 @@
+{
+  "name": "WingtipToys Development",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/wingtiptoys_updated_jumpstart",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.csdevkit",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-mssql.mssql"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[csharp]": {
+          "editor.defaultFormatter": "ms-dotnettools.csharp"
+        }
+      }
+    }
+  },
+  "forwardPorts": [5000, 5173, 1433],
+  "portsAttributes": {
+    "5000": {
+      "label": "API",
+      "onAutoForward": "notify"
+    },
+    "5173": {
+      "label": "Frontend",
+      "onAutoForward": "openBrowser"
+    },
+    "1433": {
+      "label": "SQL Server",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "dotnet tool restore && cd src/WingtipToys.Frontend && npm install",
+  "remoteUser": "vscode"
+}
