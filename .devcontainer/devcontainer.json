@@ -1,12 +1,13 @@
 {
   "name": "WingtipToys Development",
-  "image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/wingtiptoys_updated_jumpstart",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "lts"
     },
-    "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers-contrib/features/mssql-persistent:1": {}
+    "ghcr.io/devcontainers/features/azure-cli:1": {}
   },
   "customizations": {
     "vscode": {
